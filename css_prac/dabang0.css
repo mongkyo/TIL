@@ -1,0 +1,187 @@
+html, body {
+  padding: 0;
+  margin: 0;
+  font-size: 13px;
+}
+
+.horizontal {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+.horizontal > * {
+  float: left;
+}
+
+header.main-header {
+  height: 60px;
+  border-bottom: 1px solid #ccc;
+}
+
+header.main-header > nav > ul.left {
+  float: left;
+}
+header.main-header > nav > .right {
+  float: right;
+}
+
+
+/* 메인헤더의 nav의 모든 '하위' ul들에 대해,
+li가 가진 a와 img에 대해 설정 */
+header.main-header > nav ul > li > a {
+  display: inline-block;
+  height: 60px;
+  line-height: 60px;
+}
+
+/* 리스트 아이템 > a내에 img간의 수직 정렬은 중앙 기준으로 함 */
+header.main-header > nav ul > li > a > img {
+  vertical-align: middle;
+}
+/* 좌측 메뉴 아이템들의 여백 설정 */
+header.main-header > nav > .left > li:first-of-type {
+  margin-left: 15px;
+  margin-right: 15px;
+}
+/* 메인 헤더의 우측 리스트의 '내부' 리스트의 a요소들에 대한 설정 */
+/* 리스트 아이템 (li)의 자식 anchor요소는 줄높이를 전체 높이와 같게 설정, 수직 중앙 정렬 */
+
+header.main-header > nav > .right > ul > li > a {
+  color: #585858;
+  text-decoration: none;
+  padding: 0 10px;
+  margin: 0 7px;
+}
+header.main-header > nav > .right > .room-list {
+  font-size: 14px;
+
+}
+header.main-header > nav > .right > .room-list {
+  font-size: 12px;
+}
+div {
+  display: block;
+}
+/* 헤더에 포함되는 큰 배경 이미지 & 검색 UI */
+
+div.search-container {
+  position: relative;
+  height: 678px;
+}
+.mainsearch{
+  position: relative;
+  height: 678px;
+  background-color: #ebe6e0;
+}
+.search-container {
+  height: 100%;
+  background-image: url('../images/hr.png');
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  background-size: auto;
+}
+
+.mainsearch-bottom {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 110px;
+  background-color: rgba(0,0,0,0.6);
+}
+.searchform-wrap {
+  position: static;
+  margin-top: 30px;
+}
+.searchform-wrap {
+  top: 12px;
+  left: 121px;
+  z-index: 880;
+}
+
+.searchform-wide {
+  width: 534px;
+  border: none;
+  margin: 0 auto;
+}
+form {
+  margin: 0;
+}
+.form-control {
+  background-color: #fff;
+  background-image: none;
+  vertical-align: middle;
+  color: #585858;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+fieldset {
+}
+fieldset, legend {
+  padding: 0;
+  border: none;
+  margin: 0;
+}
+legend {
+  display: none;
+}
+.clearfix:before, .clearfix:after {
+  content: " ";
+  display: table;
+}
+div > fieldset > input {
+  width: 434px;
+  height: 50px;
+  padding: 0 20px;
+  border: none;
+  border-radius: 3px 0 0 3px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  font-size: 14px;
+  line-height: 50px;
+}
+.searchform-input {
+  float: left;
+}
+.searchform-btn {
+  float: left;
+  width: 100px;
+  height: 50px;
+  border: 0;
+  border-radius: 0 5px 5px 0;
+  font-size: 15px;
+}
+.searchform-btn {
+  position: absolute;
+  padding: 0;
+}
+.btn {
+  display: inline-block;
+  background-image: none;
+  margin-bottom: 0;
+  font-weight: 400;
+  line-height: 1.53856154;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+.btn-blue {
+  background-color: #3b8de0;
+  color: #fff;
+}
+.searchform-btn > .dabang-icon {
+  display: none;
+}
+.icon-size-xl {
+  vertical-align: -4px;
+  font-size: 17px;
+}
+.clearfix:after {
+  clear:both
+}
+button, input {
+  outline: none;
+  font: inherit;
+  margin: 0;
+}

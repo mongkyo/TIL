@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/dabang0.css">
+</head>
+<body>
+  <div id="wrap">
+    <header class="main-header">
+      <nav>
+        <!-- 메뉴를 수평 배치시킬때는 display: inline-block대신
+        float속석을 사용 -->
+        <ul class="left horizontal">
+          <li><a href="#"><img src="images/logo.png" alt=""></a></li>
+          <li><a href="#"><img src="images/main_link_icon_pro.png" alt=""></a><li>
+        </ul>
+        <div class="right horizontal">
+          <ul class="room-list horizontal">
+            <li><a href="#">방 검색</a></li>
+            <li><a href="#">관심목록</a></li>
+            <li><a href="#">방 등록</a></li>
+          </ul>
+          <ul class="auth-list horizontal">
+            <li><a href="#">공인중개사 회원가입</a></li>
+            <li><a href="#">회원가입 및 로그인</a></li>
+         </ul>
+        </div>
+      </nav>
+      <!--
+        1.이미지를 나타네게 하기
+        background-image 사용
+          background-repeat
+          background-position
+          background-size <- 검색해서 어떤 역할인지 보기
+        2. 반투명 검은색 배경을 아래쪽에 표시
+          position
+            absolute
+       -->
+    </header>
+    <div class="search-container"></div>
+
+    <div class="mainsearch-bottom">
+      <div class="searchform-wrap search-form-wrap">
+        <div class="searchform search-form searchform-wide">
+          <form action="">
+            <div class="searchform-field search-input clearfix">
+              <fieldset>
+                <legend>방 검색</legend>
+                <input type="text" class="searchform-input form-control" placeholder="관심지역 또는 매물번호를 검색해보세요">
+                <button class="searchform-btn btn btn-blue btn-search">
+                  <i class="dabang-icon dabang-icon-search icon-size-xl"></i>
+                  <span class="searchform-btn-text">방 검색</span>
+                </button>
+                <ul class="hidden" tabindex="-1">
+                </ul>
+              </fieldset>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
