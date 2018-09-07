@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <!-- <link rel="stylesheet" href="css/style.css"> -->
+  <style>
+  @charset "UTF-8";
+  a {
+    text-decoration: none;
+    color: #585858;
+  }
+
+  li, ul {
+    list-style-type: none;
+  }
+
+  html, body {
+    padding: 0;
+    margin: 0;
+    font-size: 13px;
+  }
+
+  /* 자식들을 수평배열할 요소에 대한 범용 클래스 */
+  .horizontal {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+  }
+
+  .horizontal > * {
+    float: left;
+  }
+
+  .clearfix::after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+
+  header.main-header > nav {
+    border-bottom: 1px solid #ccc;
+  }
+
+  header.main-header > nav > ul.left {
+    float: left;
+  }
+
+  header.main-header > nav > ul.left > li:first-of-type {
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+
+  header.main-header > nav > .right {
+    float: right;
+  }
+
+  header.main-header > nav > .right > ul > li > a {
+    color: #585858;
+    text-decoration: none;
+    padding: 0 3px;
+    margin: 0 7px;
+  }
+
+  header.main-header > nav > .right > .room-list {
+    font-size: 14px;
+  }
+
+  header.main-header > nav > .right > .auth-list {
+    font-size: 12px;
+  }
+
+  header.main-header > nav ul > li > a {
+    display: inline-block;
+    height: 60px;
+    line-height: 60px;
+  }
+
+  header.main-header > nav ul > li > a > img {
+    vertical-align: middle;
+  }
+
+  .search-container {
+    position: relative;
+    height: 678px;
+    background-image: url("../images/hr.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #ebe6e0;
+  }
+
+  .search-container > .input-bg {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    bottom: 0;
+    height: 110px;
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+
+  .search-container > .input-bg > form {
+    width: 534px;
+    margin: 30px auto 0;
+  }
+
+  .search-container > .input-bg > form > * {
+    float: left;
+    height: 50px;
+    box-sizing: border-box;
+  }
+
+  .search-container > .input-bg > form > input {
+    width: 434px;
+    padding: 0 20px;
+    border: none;
+    border-radius: 3px 0 0 3px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    font-size: 14px;
+    line-height: 50px;
+  }
+
+  .search-container > .input-bg > form > button {
+    width: 100px;
+    border: none;
+    border-radius: 0 3px 3px 0;
+    font-size: 15px;
+    color: white;
+    background-color: #3b8de0;
+    cursor: pointer;
+    transition-duration: 0.5s;
+  }
+
+  .search-container > .input-bg > form > button:hover {
+    background-color: #2074c8;
+  }
+
+  section.theme-search {
+    width: 960px;
+    margin: 0 auto;
+    text-align: center;
+    padding-bottom: 150px;
+  }
+
+  section.theme-search h2 {
+    font-size: 36px;
+    margin-bottom: 3px;
+  }
+
+  section.theme-search p.title-description {
+    font-size: 20px;
+    margin-top: 0;
+    margin-bottom: 40px;
+  }
+
+  section.theme-search > ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+
+  section.theme-search > ul > li {
+    position: relative;
+    float: left;
+    width: 300px;
+    height: 300px;
+    box-sizing: border-box;
+    margin-right: 30px;
+    margin-bottom: 30px;
+    cursor: pointer;
+    overflow: hidden;
+  }
+
+  section.theme-search > ul > li:nth-of-type(3n) {
+    margin-right: 0;
+  }
+
+  section.theme-search > ul > li:hover > .bg {
+    transform: scale(1.2);
+  }
+
+  section.theme-search > ul > li > * {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  section.theme-search > ul > li > .bg {
+    transition-duration: 0.3s;
+  }
+
+  section.theme-search > ul > li > .bg.pet {
+    background-image: url("../images/cat.jpg");
+  }
+
+  section.theme-search > ul > li > .bg.guarantee {
+    background-image: url("../images/guarantee.jpg");
+  }
+
+  section.theme-search > ul > li > .bg.threeturn {
+    background-image: url("../images/threeturn.jpg");
+  }
+
+  section.theme-search > ul > li > .bg.parking {
+    background-image: url("../images/parking.jpg");
+  }
+
+  section.theme-search > ul > li > .bg.direct {
+    background-image: url("../images/direct.jpg");
+  }
+
+  section.theme-search > ul > li > .bg.officetel {
+    background-image: url("../images/officetel.jpg");
+  }
+
+  section.theme-search > ul > li > .mask {
+    background-color: #2a2a2a;
+    opacity: .4;
+  }
+
+  section.theme-search > ul > li > .typo {
+    color: white;
+    height: auto;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  section.theme-search > ul > li > .typo > hr {
+    width: 46px;
+  }
+
+  .thanksline {
+    position: relative;
+    width: 100%;
+    height: 100px;
+    background-image: url("../images/repeatbg.jpeg");
+    background-repeat: repeat;
+    text-align: center;
+  }
+
+  .thanksline > .thanks {
+    display: inline-block;
+    width: 1000px;
+    height: 100px;
+    background-image: url("../images/thankyou.jpeg");
+    text-indent: -10000px;
+  }
+
+  section.information {
+    text-align: center;
+    width: 960px;
+    margin: 48px auto 71px;
+  }
+
+  section.information > ul {
+    float: left;
+    padding: 0;
+    width: 192px;
+    text-align: left;
+  }
+
+  section.information > ul > h3 {
+    margin: 0;
+    padding: 0;
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 1.86666667em;
+    color: #585858;
+  }
+
+  section.information > ul > li {
+    text-align: center left;
+    margin-bottom: 22px;
+    line-height: 1.9;
+    font-size: 13px;
+    margin: 0;
+    cursor: pointer;
+  }
+
+  .buttonbox {
+    position: relative;
+    width: 100%;
+    border-top: 1px solid #d1d1d1;
+    border-bottom: 1px solid #d1d1d1;
+    background-color: #fff;
+  }
+
+  .buttonbox > .buttonbox-list {
+    width: 960px;
+    height: 49px;
+    margin: 0 auto;
+  }
+
+  .buttonbox > .buttonbox-list > ul {
+    float: left;
+    display: table;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  .buttonbox > .buttonbox-list > ul > #firstlist-left {
+    border-left: 1px solid #d1d1d1;
+  }
+
+  .buttonbox > .buttonbox-list > ul > #fontlist-bold {
+    font-weight: bold;
+  }
+
+  .buttonbox > .buttonbox-list > ul > li {
+    display: table-cell;
+    width: 1%;
+    border-right: 1px solid #d1d1d1;
+  }
+
+  .buttonbox > .buttonbox-list > ul > li:hover {
+    background-color: #e7e7e7;
+  }
+
+  .buttonbox > .buttonbox-list > ul > li > a {
+    display: block;
+    height: 49px;
+    color: #585858;
+    font-size: 13px;
+    line-height: 49px;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  .last-container {
+    position: relative;
+    width: 100%;
+    min-width: 1110px;
+    clear: both;
+    background-color: #2a2a2a;
+  }
+
+  .last-container > .last-container-info {
+    z-index: 33;
+    position: relative;
+    width: 960px;
+    height: 168px;
+    padding-top: 93px;
+    margin: 0 auto;
+  }
+
+  .last-container > .last-container-info > .station-img {
+    float: left;
+    width: 98px;
+    margin: 0;
+    padding: 0;
+  }
+
+  .last-container > .last-container-info > .station-information {
+    float: left;
+    color: #919191;
+  }
+
+  .last-container > .last-container-info > .station-information > ul.station-information-korean {
+    float: left;
+    width: 288px;
+    margin: 0;
+    padding: 0;
+    margin-left: 45px;
+  }
+
+  .last-container > .last-container-info > .station-information > ul.station-information-korean > li {
+    margin-bottom: 11px;
+  }
+
+  .last-container > .last-container-info > .station-information > ul.station-information-korean > li > em {
+    color: #fff;
+    font-weight: bold;
+    font-style: normal;
+  }
+
+  .last-container > .last-container-info > .station-information > ul.station-information-korean > li > .korean-padding {
+    padding: 5.5px 0;
+  }
+
+  .last-container > .last-container-info > .station-information > ul.business-information {
+    float: left;
+    width: 323px;
+    padding: 0;
+  }
+
+  .last-container > .last-container-info > .station-information > ul.business-information > li {
+    margin-bottom: 11px;
+  }
+
+  .last-container > .last-container-info > .station-information > ul.business-information > li > a {
+    color: #919191;
+  }
+
+  .last-container > .last-container-info > .station-information > ul.last-information {
+    float: left;
+    width: 196px;
+    padding: 0;
+  }
+
+  .last-container > .last-container-info > .station-information > ul.last-information > li {
+    margin-top: 70px;
+    margin-bottom: 11px;
+  }
+  </style>
+</head>
+<body>
+  <div id="wrap">
+    <header class="main-header">
+      <nav class="clearfix">
+        <!--
+        메뉴를 수평 배치시킬때는 display: inline-block대신
+        'float'속성을 사용
+         -->
+        <ul class="left horizontal">
+          <li><a href="#"><img src="../images/logo.png" alt=""></a></li>
+          <li><a href="#"><img src="../images/icon_pro.png" alt=""></a></li>
+        </ul>
+        <div class="right horizontal">
+          <ul class="room-list horizontal">
+            <li><a href="#">방 검색</a></li>
+            <li><a href="#">관심목록</a></li>
+            <li><a href="#">방 등록</a></li>
+          </ul>
+          <ul class="auth-list horizontal">
+            <li><a href="#">공인중개사 회원가입</a></li>
+            <li><a href="#">회원가입 및 로그인</a></li>
+          </ul>
+        </div>
+      </nav>
+      <div class="search-container">
+        <!--
+        1. 이미지를 나타나게 하기
+          background-image 사용
+            background-repeat
+            background-position
+            background-size <- 검색해서 어떤역할인지 보기
+        2. 반투명 검은색 배경을 아래쪽에 표시
+          position
+            absolute
+         -->
+         <div class="input-bg">
+           <form action="" class="clearfix">
+             <input type="text" placeholder="관심지역 또는 매물번호를 검색해보세요">
+             <button type="submit">방 검색</button>
+           </form>
+         </div>
+      </div>
+    </header>
+
+    <section class="theme-search clearfix">
+      <h2>테마 검색</h2>
+      <p class="title-description">다방의 다양한 검색조건으로 방을 찾아보세요.</p>
+      <ul class="contents">
+        <!--
+          position: absolute;
+
+          요소의 크기 변경
+          transform: scale();
+        -->
+        <li>
+          <div class="bg pet"></div>
+          <div class="mask"></div>
+          <div class="typo">
+            <h3>반려동물</h3>
+            <hr>
+            <p>반려동물과 함께 살 수 있는 방 찾아보기</p>
+          </div>
+        </li>
+        <li>
+          <div class="bg guarantee"></div>
+          <div class="mask"></div>
+          <div class="typo">
+            <h3>저보증금</h3>
+            <hr>
+            <p>보증금 300만원 이하인 방 찾아보기</p>
+          </div>
+        </li>
+        <li>
+          <div class="bg threeturn"></div>
+          <div class="mask"></div>
+          <div class="typo">
+            <h3>360도 매물</h3>
+            <hr>
+            <p>3D 이미지로 더 자세히 볼 수 있는 방 찾아보기</p>
+          </div>
+        </li>
+        <li>
+          <div class="bg parking"></div>
+          <div class="mask"></div>
+          <div class="typo">
+            <h3>주차가능</h3>
+            <hr>
+            <p>주차공간이 확보된 방 찾아보기</p>
+          </div>
+        </li>
+        <li>
+          <div class="bg direct"></div>
+          <div class="mask"></div>
+          <div class="typo">
+            <h3>직거래매물</h3>
+            <hr>
+            <p>중계수수료 없는 직거래 매물 찾아보기</p>
+          </div>
+        </li>
+        <li>
+          <div class="bg officetel"></div>
+          <div class="mask"></div>
+          <div class="typo">
+            <h3>오피스텔</h3>
+            <hr>
+            <p>깨끗하고 편리한 주거용 오피스텔 찾아보기</p>
+          </div>
+        </li>
+      </ul>
+    </section>
+    <div class="thanksline">
+      <div class="thanks"></div>
+    </div>
+    <section class="information clearfix">
+      <ul>
+        <h3>형태별 검색</h3>
+        <li><a href="#">원룸</a></li>
+        <li><a href="#">투룸</a></li>
+        <li><a href="#">쓰리룸</a></li>
+        <li><a href="#">오피스텔</a></li>
+        <li><a href="#">아파트</a></li>
+      </ul>
+      <ul>
+        <h3>테마별 검색</h3>
+        <li><a href="#">저보증금</a></li>
+        <li><a href="#">오피스텔</a></li>
+        <li><a href="#">직거래 매물</a></li>
+        <li><a href="#">주차 가능</a></li>
+        <li><a href="#">반려동물 가능</a></li>
+        <li><a href="#">360도 매물</a></li>
+      </ul>
+      <ul>
+        <h3>공인중개사 회원가입</h3>
+        <li><a href="#">다방 이용 설명서</a></li>
+        <li><a href="#">가입신청</a></li>
+        <br>
+        <h3>상품소개</h3>
+        <li><a href="#">동 상품</a></li>
+        <li><a href="#">지하철 상품</a></li>
+        <li><a href="#">캠퍼스 상품</a></li>
+        <li><a href="#">일반 상품</a></li>
+      </ul>
+      <ul>
+        <h3>다방 뉴스</h3>
+        <li><a href="#">공지사항</a></li>
+        <li><a href="#">이벤트</a></li>
+        <li><a href="#">기사보기</a></li>
+        <h3>고객지원</h3>
+        <li><a href="#">자주 묻는 질문</a></li>
+        <li><a href="#">Android / IOS</a></li>
+        <li><a href="#">월페이퍼</a></li>
+        <li><a href="#">다방 공식 포스트</a></li>
+      </ul>
+      <ul>
+        <h3>About 다방</h3>
+        <li><a href="#">회사소개</a></li>
+        <li><a href="#">오시는 길</a></li>
+        <li><a href="#">제휴문의</a></li>
+      </ul>
+    </section>
+    <div class="buttonbox">
+      <div class="buttonbox-list">
+        <ul>
+          <li id="firstlist-left"><a href="#" target="_blank">회사소개</a></li>
+          <li><a href="#" target="_blank">공인중개사 회원가입</a></li>
+          <li><a href="#" target="_blank">이용약관</a></li>
+          <li id="fontlist-bold"><a href="#" target="_blank">개인정보처리방침</a></li>
+          <li><a href="#" target="_blank">매물관리규정</a></li>
+          <li><a href="#" target="_blank">자동저장 서비스</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="last-container">
+      <div class="last-container-info clearfix">
+        <div class="station-img">
+          <a href="#"><img src="../images/station3.png" target="_blank"></a>
+        </div>
+        <div class="station-information">
+          <ul class="station-information-korean">
+            <li><em>스테이션3</em></li>
+            <li>대표 : 한유순, 유형석</li>
+            <li class="korean-padding">주소 : 서울시 서초구 서초대로 301 동익성봉 빌딩 11층 (주)스테이션3</li>
+            <li>
+              <span>전화 : 02 1899-6840</span>
+              <span>팩스 : 02-554-9774</span>
+            </li>
+          </ul>
+          <ul class="business-information">
+            <li>사업자 번호 : 220-88-59156</li>
+            <li>통신판매업신고번호 : 제2013-서울 강남-02884호</li>
+            <li>프로모션/사업 제휴문의 : <a href="#">biz@station3.co.kr</a></li>
+            <li>일반회원/직거래 고객센터 : 02-1899-6840</li>
+          </ul>
+          <ul class="last-information">
+            <li><p>Station3, Inc. All rights reserved.</p></li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>
