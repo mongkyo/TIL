@@ -1,0 +1,66 @@
+
+html, body {
+  padding: 0;
+  margin: 0;
+  font-size: 13px;
+}
+/* 자식들을 수평배열할 요소에 대한 범용 클래스 */
+.horizontal {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+.horizontal > * {
+  float: left;
+}
+
+/* 메인 헤더 */
+header.main-header {
+  height: 60px;
+  border-bottom: 1px solid #ccc;
+}
+/* 좌/우측 리스트들을 정렬 */
+header.main-header > nav > ul.left {
+  float: left;
+}
+header.main-header > nav > .right {
+  float: right;
+}
+
+/*
+메인헤더의 nav의 모든 '하위' ul들에 대해,
+li가 가진 a와 img에 대해 설정 */
+header.main-header > nav ul > li > a {
+  display: inline-block;
+  height: 60px;
+  line-height: 60px;
+}
+header.main-header > nav ul > li > a > img {
+  vertical-align: middle;
+}
+/* 좌측 메뉴 아이템들의 여백 설정 */
+header.main-header > nav > .left > li:first-of-type {
+  margin-left: 15px;
+  margin-right: 15px;
+}
+/* 우측 메뉴가 가진 a요소에 대한 설정 */
+header.main-header > nav > .right > ul > li > a {
+  color: #585858;
+  text-decoration: none;
+  padding: 0 3px;
+  margin: 0 7px;
+}
+header.main-header > nav > .right > .room-list {
+  font-size: 14px;
+}
+header.main-header > nav > .right > .auth-list {
+  font-size: 12px;
+}
+
+
+/* 헤더에 포함되는 큰 배경이미지 & 검색 UI */
+.search-container {
+  position: relative;
+  height: 678px;
+  back
+}
