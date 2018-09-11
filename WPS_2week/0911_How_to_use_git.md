@@ -88,4 +88,56 @@ staged 영역에서 지우는 방법
 		$ git checkout 'branch name'
 		
 
-3-1 까지 따라해보기
+
+
+, branch
+
+### git을 원격 저장소에 저장하기 
+
+* 원격 저장소 추가하는 방법 ( Github 사용 )
+	* 원격 저장소는 github이 아닌 다른 것을 사용할 수도 있다. github은 단지 하나의 플랫폼일 뿐이다.
+	* 만약에 origin 말고 원격저장소에 다른 branch명을 등록하고 싶으면 한번 더 작성해주면 된다.
+
+
+			$ git remote add <원격 저장소 주소> <현재 위치에서 생성되는 폴더의 이름>
+			# ex github-experiment 라는 원격저장소를 가진 폴더를 만들면
+			$ git remote add branch_name <원격 저장소 주소> github-experiment
+			# 일반적으로 branch_name에 origin을 쓴다
+			
+
+
+### fetch 
+
+- 원격 저장소(github)에 저장되어있는 데이터를 가져온다. 
+- push와 반대라고 생각하면 된다. (pull은 아직 사용하지 않는다.) 
+
+
+### Clone 
+
+- 원격 저장소에 있는 데이터를 가져 오고 싶을때 
+
+
+		$ git clone <원격 저장소 주소> <현재 위치에서 생성하여 clone할 폴더의 이름> 
+		
+		
+### merge
+
+- 두개의 브랜치가 하나의 조상(부모)데이터를 참조하고 있을 때 두 데이터를 하나로 합쳐준다. 이 때 두 branch가 같은 파일의 같은 줄을 서로 다르게 수정했다면 '__conflict__'오류가 난다.
+
+		$ git merge < 현재 내 branch가 아닌 다른 branch >
+
+### conflict
+
+* 같은 줄을 수정하고 merge를 하면 conflict가 발생한다
+
+>왜냐면 git은 두개의 파일이 같은 줄을 수정했을 경우 어떻게 합쳐야할 지 결정 할 수 없다. 
+>따라서 그 conflict를 해결하기위해 에디터(텍스트 파일의 경우 vim)를 사용하여 conflict오류가 난 부분을 직접 수정해 줘야한다. 
+>하지만 수정없이 한번 파일을 켰다가 그대로 저장하고 add해줘도 그대로 파일을 원격 저장소에 보낼 수 있다. 그렇지만 이 때 conflict오류가 난 부분에 불필요한 주석등이 들어가 있기 때문에 반드시 수정해주는 작업이 필요하다.
+
+### rebase
+
+- 두개의 branch가 하나의 조상(부모) 데이터를 참조하고 있을 때, 다른 branch를 참조하여 그 branch 뒤에 위치 시키는 것을 말한다. 
+
+?????
+
+### branch
